@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--VisualizerVC-->
+        <scene sceneID="ufU-Gi-8n6">
+            <objects>
+                <viewController storyboardIdentifier="VisualizerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iZW-3D-1vF" customClass="VisualizerVC" customModule="SortingVisualiser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C3P-2O-qtV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXr-hR-qTs">
+                                <rect key="frame" x="16" y="40" width="382" height="756"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7n4-cI-B8c">
+                                <rect key="frame" x="0.0" y="812" width="414" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-hA-Nmm">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="didTapStartButton:" destination="iZW-3D-1vF" eventType="touchUpInside" id="aWC-3y-jhr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRg-ET-bTK">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="44"/>
+                                        <state key="normal" title="Shuffle"/>
+                                        <connections>
+                                            <action selector="didTapShuffleButton:" destination="iZW-3D-1vF" eventType="touchUpInside" id="BXL-is-aCl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Y4t-AN-gC2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7n4-cI-B8c" secondAttribute="bottom" constant="40" id="5sE-y9-sU2"/>
+                            <constraint firstItem="7n4-cI-B8c" firstAttribute="leading" secondItem="C3P-2O-qtV" secondAttribute="leading" id="8uQ-Zo-CRc"/>
+                            <constraint firstItem="sXr-hR-qTs" firstAttribute="top" secondItem="C3P-2O-qtV" secondAttribute="top" constant="40" id="GF3-YR-32V"/>
+                            <constraint firstAttribute="trailing" secondItem="7n4-cI-B8c" secondAttribute="trailing" id="XQl-Jm-gDQ"/>
+                            <constraint firstItem="7n4-cI-B8c" firstAttribute="top" secondItem="sXr-hR-qTs" secondAttribute="bottom" constant="16" id="evo-MP-aIH"/>
+                            <constraint firstItem="sXr-hR-qTs" firstAttribute="leading" secondItem="C3P-2O-qtV" secondAttribute="leading" constant="16" id="m5V-ee-71I"/>
+                            <constraint firstAttribute="trailing" secondItem="sXr-hR-qTs" secondAttribute="trailing" constant="16" id="pXZ-LM-wBb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="shuffleButton" destination="WRg-ET-bTK" id="zn7-2t-K4I"/>
+                        <outlet property="startButton" destination="tIj-hA-Nmm" id="btq-P1-iPg"/>
+                        <outlet property="visualizationContainer" destination="sXr-hR-qTs" id="0mn-QM-chI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRP-jP-pSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-484" y="117"/>
+        </scene>
+    </scenes>
+</document>
