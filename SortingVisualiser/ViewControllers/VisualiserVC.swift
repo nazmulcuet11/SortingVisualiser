@@ -38,10 +38,6 @@ class VisualiserVC: UIViewController, StoryboardBased {
         applyProvidersDataToUI()
     }
 
-    override var shouldAutorotate: Bool {
-        return false
-    }
-
     @IBAction func didTapStartButton(_ sender: Any) {
         let states = dataProvider.getIntermediateSortingSteps()
         applySortingState(at: 0, states: states)

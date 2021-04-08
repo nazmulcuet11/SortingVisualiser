@@ -10,7 +10,7 @@ import UIKit
 class AlgorithmPickerVC: UIViewController, NibBased {
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
