@@ -13,17 +13,28 @@ protocol NibBased {
     static func instantiate() -> Self
 }
 
-extension NibBased where Self: UIView {
-
+extension NibBased {
     static var nibName: String {
         return "\(Self.self)"
     }
+}
 
+extension NibBased where Self: UIView {
     static func instantiate() -> Self  {
         let nib = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
         guard let view = nib?.first as? Self else {
             fatalError("Can't load view \(Self.self) from nib \(nibName)")
         }
         return view
+    }
+}
+
+extension NibBased where Self: UIViewController {
+    static func instantiate() -> Self  {
+        let nib = UINib(nibName: nibName, bundle:nil)
+        guard let vc = nib.instantiate(withOwner: self, options: nil).first as? Self else {
+            fatalError("Can't load view controller \(Self.self) from nib \(nibName)")
+        }
+        return vc
     }
 }

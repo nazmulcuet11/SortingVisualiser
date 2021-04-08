@@ -13,9 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let rootVC = VisualiserVC.instantiate()
-        rootVC.dataProvider = BubbleSort()
-//        rootVC.dataProvider = SelectionSort()
+        let rootVC = AlgorithmPickerVC.instantiate()
         let navController = UINavigationController(rootViewController: rootVC)
 
         let window = UIWindow()

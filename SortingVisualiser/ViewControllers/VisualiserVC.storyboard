@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,10 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXr-hR-qTs">
-                                <rect key="frame" x="16" y="40" width="382" height="604"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
-                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MXk-BU-zcz">
+                                <rect key="frame" x="16" y="84" width="382" height="560"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="va1-xl-X9n">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-R3-35I">
                                 <rect key="frame" x="16" y="660" width="382" height="162"/>
                                 <subviews>
@@ -73,21 +79,23 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A3y-uu-sGr"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="A3y-uu-sGr" firstAttribute="bottom" secondItem="L9f-R3-35I" secondAttribute="bottom" constant="40" id="0iT-sc-Xfp"/>
-                            <constraint firstItem="L9f-R3-35I" firstAttribute="top" secondItem="sXr-hR-qTs" secondAttribute="bottom" constant="16" id="CF9-Jy-N7g"/>
-                            <constraint firstItem="sXr-hR-qTs" firstAttribute="top" secondItem="C3P-2O-qtV" secondAttribute="top" constant="40" id="GF3-YR-32V"/>
+                            <constraint firstItem="MXk-BU-zcz" firstAttribute="top" secondItem="A3y-uu-sGr" secondAttribute="top" constant="40" id="1lZ-nt-qmf"/>
+                            <constraint firstItem="MXk-BU-zcz" firstAttribute="leading" secondItem="A3y-uu-sGr" secondAttribute="leading" constant="16" id="QlC-fA-89K"/>
                             <constraint firstItem="L9f-R3-35I" firstAttribute="leading" secondItem="A3y-uu-sGr" secondAttribute="leading" constant="16" id="T3G-PP-gny"/>
+                            <constraint firstItem="L9f-R3-35I" firstAttribute="top" secondItem="MXk-BU-zcz" secondAttribute="bottom" constant="16" id="VKL-Cq-gde"/>
+                            <constraint firstItem="A3y-uu-sGr" firstAttribute="trailing" secondItem="MXk-BU-zcz" secondAttribute="trailing" constant="16" id="fAC-vX-4gC"/>
                             <constraint firstItem="A3y-uu-sGr" firstAttribute="trailing" secondItem="L9f-R3-35I" secondAttribute="trailing" constant="16" id="lD9-TQ-RiU"/>
-                            <constraint firstItem="sXr-hR-qTs" firstAttribute="leading" secondItem="C3P-2O-qtV" secondAttribute="leading" constant="16" id="m5V-ee-71I"/>
-                            <constraint firstAttribute="trailing" secondItem="sXr-hR-qTs" secondAttribute="trailing" constant="16" id="pXZ-LM-wBb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="animationSpeedSlider" destination="ikc-KL-KsJ" id="neT-bg-YuZ"/>
+                        <outlet property="collectionView" destination="MXk-BU-zcz" id="PMt-kz-08B"/>
+                        <outlet property="layout" destination="va1-xl-X9n" id="C5k-cV-xvR"/>
                         <outlet property="shuffleButton" destination="WRg-ET-bTK" id="zn7-2t-K4I"/>
                         <outlet property="startButton" destination="tIj-hA-Nmm" id="btq-P1-iPg"/>
-                        <outlet property="visualizationContainer" destination="sXr-hR-qTs" id="0mn-QM-chI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRP-jP-pSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -95,9 +103,4 @@
             <point key="canvasLocation" x="-484.05797101449281" y="116.51785714285714"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

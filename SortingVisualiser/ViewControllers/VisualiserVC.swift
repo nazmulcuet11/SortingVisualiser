@@ -15,7 +15,11 @@ class VisualiserVC: UIViewController, StoryboardBased {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var animationSpeedSlider: UISlider!
-    private var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
+
+
+    //    private var collectionView: UICollectionView!
 
     var barWidth: CGFloat = 10
     var barSpacing: CGFloat = 2
@@ -49,31 +53,11 @@ class VisualiserVC: UIViewController, StoryboardBased {
     }
 
     private func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-
-        let height = visualizationContainer.bounds.height
+        let height = collectionView.bounds.height
         layout.itemSize = CGSize(width: barWidth, height: height)
         layout.minimumInteritemSpacing = barSpacing
 
-        let collectionView = UICollectionView(
-            frame: visualizationContainer.bounds,
-            collectionViewLayout: layout
-        )
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        visualizationContainer.addSubview(collectionView)
-        NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: visualizationContainer.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: visualizationContainer.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: visualizationContainer.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: visualizationContainer.bottomAnchor)
-        ])
-
-        collectionView.isScrollEnabled = false
-
         collectionView.registerNibCell(BarCell.self)
-
-        self.collectionView = collectionView
     }
 
     private func configureDataSource() {
@@ -95,7 +79,7 @@ class VisualiserVC: UIViewController, StoryboardBased {
 
         let barCount = Int(floor((width + barSpacing) / (barWidth + barSpacing)))
         let minHeight: Double = 200
-        let maxHeight: Double = Double(height - 100)
+        let maxHeight: Double = Double(height)
 
         dataProvider.prepareInitialData(count: barCount, minHeight: minHeight, maxHeight: maxHeight)
     }
