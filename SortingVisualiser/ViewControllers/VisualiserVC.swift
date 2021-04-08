@@ -82,8 +82,7 @@ class VisualiserVC: UIViewController, StoryboardBased {
                     withReuseIdentifier: BarCell.reuseId,
                     for: indexPath
                 ) as! BarCell
-            cell.barHeight = dataPoint.height
-            cell.color = dataPoint.color
+            cell.configure(with: dataPoint)
             return cell
         }
     }

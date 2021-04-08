@@ -13,20 +13,16 @@ class BarCell: UICollectionViewCell {
 
     @IBOutlet weak var barView: UIView!
     @IBOutlet weak var barViewHeightLC: NSLayoutConstraint!
-
-    var barHeight: Int = 0 {
-        didSet {
-            barViewHeightLC.constant = CGFloat(barHeight)
-        }
-    }
-
-    var color: UIColor = .red {
-        didSet {
-            barView.backgroundColor = color
-        }
-    }
-
+    @IBOutlet weak var barViewBottomAnchorLC: NSLayoutConstraint!
+    @IBOutlet weak var barViewLeadingAnchorLC: NSLayoutConstraint!
+    @IBOutlet weak var barViewTrailingAnchorLC: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+
+    func configure(with dataPoint: DataPoint) {
+        barViewHeightLC.constant = CGFloat(dataPoint.height)
+        barView.backgroundColor = dataPoint.color
     }
 }

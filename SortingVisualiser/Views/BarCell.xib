@@ -33,7 +33,10 @@
             <size key="customSize" width="17" height="567"/>
             <connections>
                 <outlet property="barView" destination="ZOs-vJ-7Dn" id="DXI-27-uTy"/>
+                <outlet property="barViewBottomAnchorLC" destination="cq8-Nk-zIn" id="ot4-2q-o7a"/>
                 <outlet property="barViewHeightLC" destination="dOe-xF-AfJ" id="0M7-mT-8la"/>
+                <outlet property="barViewLeadingAnchorLC" destination="XQ3-HE-EsC" id="5ck-PM-yy7"/>
+                <outlet property="barViewTrailingAnchorLC" destination="3cF-co-8Rj" id="nDE-78-8Yb"/>
             </connections>
             <point key="canvasLocation" x="107.97101449275362" y="193.19196428571428"/>
         </collectionViewCell>
