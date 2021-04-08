@@ -51,12 +51,13 @@ extension AlgorithmPickerVC: UITableViewDelegate {
 
 extension AlgorithmPickerVC {
     enum SortingAlgorithmType: CaseIterable {
-        case bubbleSort, selectionSort
+        case bubbleSort, selectionSort, mergeSort
 
         var dataProvider: SortingDataProvider {
             switch self {
             case .bubbleSort: return BubbleSort()
             case .selectionSort: return SelectionSort()
+            case .mergeSort: return MergeSort()
             }
         }
     }

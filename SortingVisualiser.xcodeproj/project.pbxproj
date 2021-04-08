@@ -24,6 +24,7 @@
 		9AE7E82C261F04200029C1C7 /* SelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7E82B261F04200029C1C7 /* SelectionSort.swift */; };
 		9AE7E832261F2B920029C1C7 /* AlgorithmPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7E830261F2B920029C1C7 /* AlgorithmPickerVC.swift */; };
 		9AE7E833261F2B920029C1C7 /* AlgorithmPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E831261F2B920029C1C7 /* AlgorithmPickerVC.xib */; };
+		9AE7E837261F3E380029C1C7 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7E836261F3E380029C1C7 /* MergeSort.swift */; };
 		9AF76AB2261E115300DA62C9 /* BubbleSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76AB1261E115300DA62C9 /* BubbleSort.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		9AE7E82B261F04200029C1C7 /* SelectionSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionSort.swift; sourceTree = "<group>"; };
 		9AE7E830261F2B920029C1C7 /* AlgorithmPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPickerVC.swift; sourceTree = "<group>"; };
 		9AE7E831261F2B920029C1C7 /* AlgorithmPickerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlgorithmPickerVC.xib; sourceTree = "<group>"; };
+		9AE7E836261F3E380029C1C7 /* MergeSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 		9AF76AB1261E115300DA62C9 /* BubbleSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleSort.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 				9ABD1F89261E0DD70014E8C9 /* SortingDataProvider.swift */,
 				9AF76AB1261E115300DA62C9 /* BubbleSort.swift */,
 				9AE7E82B261F04200029C1C7 /* SelectionSort.swift */,
+				9AE7E836261F3E380029C1C7 /* MergeSort.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				9AE7E82C261F04200029C1C7 /* SelectionSort.swift in Sources */,
 				9ABD1F8A261E0DD70014E8C9 /* SortingDataProvider.swift in Sources */,
 				9A180971261DBFBD0077E146 /* VisualiserVC.swift in Sources */,
+				9AE7E837261F3E380029C1C7 /* MergeSort.swift in Sources */,
 				9AE4C8E0261E00A0007923E9 /* UITableView+Convenience.swift in Sources */,
 				9AE4C8DD261E00A0007923E9 /* ReusableView.swift in Sources */,
 				9AE4C8E1261E00A0007923E9 /* UICollectionView+Convenience.swift in Sources */,
