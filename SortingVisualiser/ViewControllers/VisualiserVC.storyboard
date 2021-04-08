@@ -3,13 +3,14 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--VisualizerVC-->
+        <!--VisualiserVC-->
         <scene sceneID="ufU-Gi-8n6">
             <objects>
-                <viewController storyboardIdentifier="VisualizerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iZW-3D-1vF" customClass="VisualizerVC" customModule="SortingVisualiser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VisualiserVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iZW-3D-1vF" customClass="VisualiserVC" customModule="SortingVisualiser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C3P-2O-qtV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +42,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="A3y-uu-sGr"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="7n4-cI-B8c" secondAttribute="bottom" constant="40" id="5sE-y9-sU2"/>

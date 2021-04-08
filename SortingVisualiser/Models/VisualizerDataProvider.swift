@@ -28,7 +28,8 @@ class VisualizerDataProvider {
 
         var currentBarHeight = initialBarHeight
         for _ in 0..<barCount {
-            data.append(DataPoint(height: Int(currentBarHeight)))
+            let dataPoint = DataPoint(height: Int(currentBarHeight), state: .nutral)
+            data.append(dataPoint)
             currentBarHeight += stepHeight
         }
     }

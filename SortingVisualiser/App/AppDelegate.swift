@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let rootVC = VisualizerVC.instantiate()
+        let rootVC = VisualiserVC.instantiate()
         rootVC.sortingAlgorithm = BubbleSort()
         let window = UIWindow()
         window.rootViewController = rootVC

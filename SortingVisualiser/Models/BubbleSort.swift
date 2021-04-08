@@ -10,17 +10,24 @@ import Foundation
 struct BubbleSort: SortingAlgorithm {
     var name: String { "Bubble Sort" }
 
-    func getIntermediateSortingSteps(data: [DataPoint]) -> [[DataPoint]] {
-        var mutableData = data
+    func getIntermediateSortingSteps(dataPoints: [DataPoint]) -> [[DataPoint]] {
+
+        var mutableDataPoints = dataPoints
         var states: [[DataPoint]] = []
-        for i in 0..<data.count {
-            states.append(mutableData)
-            for j in (i + 1)..<data.count {
-                if mutableData[j].height < mutableData[i].height {
-                    mutableData.swapAt(i, j)
+        
+        for i in 0..<(dataPoints.count - 1) {
+            for j in 0..<(dataPoints.count - i - 1) {
+                let state = getUpdateDataPointSate(dataPoints: mutableDataPoints, comparingIndexes: [j, j+1])
+                states.append(state)
+
+                if mutableDataPoints[j+1].height < mutableDataPoints[j].height {
+                    mutableDataPoints.swapAt(j, j+1)
                 }
             }
         }
+
+        let state = getSortingCompletedState(dataPoints: mutableDataPoints)
+        states.append(state)
 
         return states
     }

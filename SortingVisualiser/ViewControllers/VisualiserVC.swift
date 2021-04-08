@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class VisualizerVC: UIViewController, StoryboardBased {
+class VisualiserVC: UIViewController, StoryboardBased {
 
     @IBOutlet weak var visualizationContainer: UIView!
     @IBOutlet weak var startButton: UIButton!
@@ -37,7 +37,7 @@ class VisualizerVC: UIViewController, StoryboardBased {
             spacing: barSpacing
         )
 
-        applyDataChangeToUI(data: dataProvider.data)
+        applyProvidersDataToUI()
     }
 
     override var shouldAutorotate: Bool {
@@ -45,13 +45,13 @@ class VisualizerVC: UIViewController, StoryboardBased {
     }
 
     @IBAction func didTapStartButton(_ sender: Any) {
-        let states = sortingAlgorithm.getIntermediateSortingSteps(data: dataProvider.data)
+        let states = sortingAlgorithm.getIntermediateSortingSteps(dataPoints: dataProvider.data)
         applySortingState(at: 0, states: states)
     }
 
     @IBAction func didTapShuffleButton(_ sender: Any) {
         dataProvider.shuffle()
-        applyDataChangeToUI(data: dataProvider.data)
+        applyProvidersDataToUI()
     }
 
     private func setupCollectionView() {
@@ -76,22 +76,23 @@ class VisualizerVC: UIViewController, StoryboardBased {
 
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Int, DataPoint>(collectionView: collectionView) {
-            collectionView, indexPath, data in
+            collectionView, indexPath, dataPoint in
             let cell = collectionView
                 .dequeueReusableCell(
                     withReuseIdentifier: BarCell.reuseId,
                     for: indexPath
                 ) as! BarCell
-            cell.barHeight = data.height
+            cell.barHeight = dataPoint.height
+            cell.color = dataPoint.color
             return cell
         }
     }
 
-    private func applyDataChangeToUI(data: [DataPoint]) {
+    private func applyDataChangeToUI(dataPoints: [DataPoint]) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, DataPoint>()
         snapshot.deleteAllItems()
         snapshot.appendSections([0])
-        snapshot.appendItems(data, toSection: 0)
+        snapshot.appendItems(dataPoints, toSection: 0)
         dataSource.apply(snapshot)
     }
 
@@ -112,10 +113,15 @@ class VisualizerVC: UIViewController, StoryboardBased {
         }
 
         disableButtons()
-        applyDataChangeToUI(data: states[index])
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+        applyDataChangeToUI(dataPoints: states[index])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.applySortingState(at: index + 1, states: states)
         })
+    }
+
+    private func applyProvidersDataToUI() {
+        let dataPoints = dataProvider.data
+        applyDataChangeToUI(dataPoints: dataPoints)
     }
 }
 
