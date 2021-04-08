@@ -24,38 +24,20 @@ extension SortingDataProvider {
         var currentBarHeight = minHeight
 
         for _ in 0..<count {
-            let dataPoint = DataPoint(height: currentBarHeight, state: .nutral)
+            let dataPoint = DataPoint(height: currentBarHeight)
             dataPoints.append(dataPoint)
             currentBarHeight += stepHeight
         }
     }
 
     mutating func shuffle() {
-        markAllDataPointsWithState(.nutral)
+        resetAllDataPointsColor()
         dataPoints.shuffle()
     }
 
-    mutating func updateDataPointSates(leftComparingIndex: Int, rightComparingIndex: Int) {
+    mutating func resetAllDataPointsColor() {
         for i in 0..<dataPoints.count {
-            var state: DataPointState
-            if i == leftComparingIndex {
-                state = .leftComparingIndex
-            } else if i == rightComparingIndex {
-                state = .rightComparingIndex
-            } else {
-                state = .nutral
-            }
-            dataPoints[i].state = state
-        }
-    }
-
-    mutating func setComparisnWiningIndex(winingIndex: Int) {
-        dataPoints[winingIndex].state = .comparisnWiningIndex
-    }
-
-    mutating func markAllDataPointsWithState(_ state: DataPointState) {
-        for i in 0..<dataPoints.count {
-            dataPoints[i].state = state
+            dataPoints[i].color = .orange
         }
     }
 }

@@ -7,12 +7,8 @@
 
 import UIKit
 
-enum DataPointState {
-    case nutral, leftComparingIndex, rightComparingIndex, comparisnWiningIndex, final
-}
-
 struct DataPoint: Hashable {
     let identifier: String = UUID().uuidString
     let height: Double
-    var state: DataPointState
+    var color: UIColor = .orange
 }

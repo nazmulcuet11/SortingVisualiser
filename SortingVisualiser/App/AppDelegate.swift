@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let rootVC = VisualiserVC.instantiate()
         rootVC.dataProvider = BubbleSort()
-
+//        rootVC.dataProvider = SelectionSort()
         let navController = UINavigationController(rootViewController: rootVC)
 
         let window = UIWindow()
