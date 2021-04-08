@@ -66,7 +66,15 @@ class VisualiserVC: UIViewController, StoryboardBased {
             frame: visualizationContainer.bounds,
             collectionViewLayout: layout
         )
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         visualizationContainer.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: visualizationContainer.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: visualizationContainer.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: visualizationContainer.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: visualizationContainer.bottomAnchor)
+        ])
 
         collectionView.isScrollEnabled = false
 
