@@ -13,6 +13,6 @@ enum DataPointState {
 
 struct DataPoint: Hashable {
     let identifier: String = UUID().uuidString
-    let height: Int
+    let height: Double
     var state: DataPointState
 }

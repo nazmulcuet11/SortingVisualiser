@@ -19,25 +19,18 @@ class VisualiserVC: UIViewController, StoryboardBased {
 
     var barWidth: CGFloat = 10
     var barSpacing: CGFloat = 2
-    var dataProvider = VisualizerDataProvider()
-    var sortingAlgorithm: SortingAlgorithm!
+    var dataProvider: SortingDataProvider!
 
     private var dataSource: UICollectionViewDiffableDataSource<Int, DataPoint>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = sortingAlgorithm.name
+        title = dataProvider.algorithmName
 
         setupCollectionView()
         configureDataSource()
-
-        dataProvider.prepareIntialData(
-            for: collectionView,
-            barWidth: barWidth,
-            spacing: barSpacing
-        )
-
+        prepareInitialData()
         applyProvidersDataToUI()
     }
 
@@ -46,7 +39,7 @@ class VisualiserVC: UIViewController, StoryboardBased {
     }
 
     @IBAction func didTapStartButton(_ sender: Any) {
-        let states = sortingAlgorithm.getIntermediateSortingSteps(dataPoints: dataProvider.data)
+        let states = dataProvider.getIntermediateSortingSteps()
         applySortingState(at: 0, states: states)
     }
 
@@ -96,6 +89,17 @@ class VisualiserVC: UIViewController, StoryboardBased {
         }
     }
 
+    private func prepareInitialData() {
+        let width = collectionView.bounds.width
+        let height = collectionView.bounds.height
+
+        let barCount = Int(floor((width + barSpacing) / (barWidth + barSpacing)))
+        let minHeight: Double = 200
+        let maxHeight: Double = Double(height - 100)
+
+        dataProvider.prepareInitialData(count: barCount, minHeight: minHeight, maxHeight: maxHeight)
+    }
+
     private func applyDataChangeToUI(dataPoints: [DataPoint]) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, DataPoint>()
         snapshot.deleteAllItems()
@@ -129,7 +133,7 @@ class VisualiserVC: UIViewController, StoryboardBased {
     }
 
     private func applyProvidersDataToUI() {
-        let dataPoints = dataProvider.data
+        let dataPoints = dataProvider.dataPoints
         applyDataChangeToUI(dataPoints: dataPoints)
     }
 }

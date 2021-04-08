@@ -7,27 +7,26 @@
 
 import Foundation
 
-struct BubbleSort: SortingAlgorithm {
-    var name: String { "Bubble Sort" }
+struct BubbleSort: SortingDataProvider {
 
-    func getIntermediateSortingSteps(dataPoints: [DataPoint]) -> [[DataPoint]] {
+    var algorithmName: String { "Bubble Sort" }
+    var dataPoints: [DataPoint] = []
 
-        var mutableDataPoints = dataPoints
+    mutating func getIntermediateSortingSteps() -> [[DataPoint]] {
         var states: [[DataPoint]] = []
-        
         for i in 0..<(dataPoints.count - 1) {
             for j in 0..<(dataPoints.count - i - 1) {
-                let state = getUpdateDataPointSate(dataPoints: mutableDataPoints, comparingIndexes: [j, j+1])
-                states.append(state)
+                updateDataPointSates(comparingIndexes: [j, j+1])
+                states.append(dataPoints)
 
-                if mutableDataPoints[j+1].height < mutableDataPoints[j].height {
-                    mutableDataPoints.swapAt(j, j+1)
+                if dataPoints[j+1].height < dataPoints[j].height {
+                    dataPoints.swapAt(j, j+1)
                 }
             }
         }
 
-        let state = getSortingCompletedState(dataPoints: mutableDataPoints)
-        states.append(state)
+        markAllDataPointsWithState(.final)
+        states.append(dataPoints)
 
         return states
     }
