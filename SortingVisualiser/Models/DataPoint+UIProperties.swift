@@ -11,7 +11,9 @@ extension DataPoint {
     var color: UIColor {
         switch state {
         case .nutral: return .orange
-        case .comparing: return .white
+        case .leftComparingIndex: return .purple
+        case .rightComparingIndex: return .purple
+        case .comparisnWiningIndex: return .red
         case .final: return .green
         }
     }

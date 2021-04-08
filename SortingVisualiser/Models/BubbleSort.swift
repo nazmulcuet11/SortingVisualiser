@@ -16,11 +16,17 @@ struct BubbleSort: SortingDataProvider {
         var states: [[DataPoint]] = []
         for i in 0..<(dataPoints.count - 1) {
             for j in 0..<(dataPoints.count - i - 1) {
-                updateDataPointSates(comparingIndexes: [j, j+1])
+                updateDataPointSates(leftComparingIndex: j, rightComparingIndex: j + 1)
                 states.append(dataPoints)
 
                 if dataPoints[j+1].height < dataPoints[j].height {
+                    setComparisnWiningIndex(winingIndex: j)
+                    states.append(dataPoints)
+
                     dataPoints.swapAt(j, j+1)
+                } else {
+                    setComparisnWiningIndex(winingIndex: j + 1)
+                    states.append(dataPoints)
                 }
             }
         }

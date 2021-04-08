@@ -35,12 +35,22 @@ extension SortingDataProvider {
         dataPoints.shuffle()
     }
 
-    mutating func updateDataPointSates(comparingIndexes: [Int]) {
+    mutating func updateDataPointSates(leftComparingIndex: Int, rightComparingIndex: Int) {
         for i in 0..<dataPoints.count {
-            let isActive = comparingIndexes.contains(i)
-            let state: DataPointState = isActive ? .comparing : .nutral
+            var state: DataPointState
+            if i == leftComparingIndex {
+                state = .leftComparingIndex
+            } else if i == rightComparingIndex {
+                state = .rightComparingIndex
+            } else {
+                state = .nutral
+            }
             dataPoints[i].state = state
         }
+    }
+
+    mutating func setComparisnWiningIndex(winingIndex: Int) {
+        dataPoints[winingIndex].state = .comparisnWiningIndex
     }
 
     mutating func markAllDataPointsWithState(_ state: DataPointState) {

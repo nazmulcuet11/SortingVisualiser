@@ -8,7 +8,7 @@
 import UIKit
 
 enum DataPointState {
-    case nutral, comparing, final
+    case nutral, leftComparingIndex, rightComparingIndex, comparisnWiningIndex, final
 }
 
 struct DataPoint: Hashable {
