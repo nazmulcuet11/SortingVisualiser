@@ -14,6 +14,7 @@ class VisualiserVC: UIViewController, StoryboardBased {
     @IBOutlet weak var visualizationContainer: UIView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var shuffleButton: UIButton!
+    @IBOutlet weak var animationSpeedSlider: UISlider!
     private var collectionView: UICollectionView!
 
     var barWidth: CGFloat = 10
@@ -113,7 +114,8 @@ class VisualiserVC: UIViewController, StoryboardBased {
 
         disableButtons()
         applyDataChangeToUI(dataPoints: states[index])
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        let animationSpeed = 1.01 - Double(animationSpeedSlider.value)
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationSpeed, execute: {
             self.applySortingState(at: index + 1, states: states)
         })
     }

@@ -15,8 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let rootVC = VisualiserVC.instantiate()
         rootVC.sortingAlgorithm = BubbleSort()
+
+        let navController = UINavigationController(rootViewController: rootVC)
+
         let window = UIWindow()
-        window.rootViewController = rootVC
+        window.rootViewController = navController
         window.makeKeyAndVisible()
         self.window = window
 

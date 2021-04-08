@@ -16,45 +16,75 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXr-hR-qTs">
-                                <rect key="frame" x="16" y="40" width="382" height="756"/>
+                                <rect key="frame" x="16" y="40" width="382" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7n4-cI-B8c">
-                                <rect key="frame" x="0.0" y="812" width="414" height="44"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-R3-35I">
+                                <rect key="frame" x="16" y="660" width="382" height="162"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-hA-Nmm">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
-                                        <state key="normal" title="Start"/>
-                                        <connections>
-                                            <action selector="didTapStartButton:" destination="iZW-3D-1vF" eventType="touchUpInside" id="aWC-3y-jhr"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRg-ET-bTK">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="44"/>
-                                        <state key="normal" title="Shuffle"/>
-                                        <connections>
-                                            <action selector="didTapShuffleButton:" destination="iZW-3D-1vF" eventType="touchUpInside" id="BXL-is-aCl"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOo-Rx-4hs">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="108"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Animation Speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buL-qg-0Ra">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ikc-KL-KsJ">
+                                                <rect key="frame" x="14" y="20.5" width="354" height="88.5"/>
+                                            </slider>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ikc-KL-KsJ" secondAttribute="bottom" id="0yA-ox-RPU"/>
+                                            <constraint firstAttribute="trailing" secondItem="buL-qg-0Ra" secondAttribute="trailing" id="8oL-7e-dzQ"/>
+                                            <constraint firstItem="buL-qg-0Ra" firstAttribute="leading" secondItem="bOo-Rx-4hs" secondAttribute="leading" id="Imm-h5-Yxn"/>
+                                            <constraint firstItem="buL-qg-0Ra" firstAttribute="top" secondItem="bOo-Rx-4hs" secondAttribute="top" id="VD8-sV-Ypb"/>
+                                            <constraint firstItem="ikc-KL-KsJ" firstAttribute="top" secondItem="buL-qg-0Ra" secondAttribute="bottom" id="VUE-SW-k9Z"/>
+                                            <constraint firstItem="ikc-KL-KsJ" firstAttribute="leading" secondItem="bOo-Rx-4hs" secondAttribute="leading" constant="16" id="iFu-bU-RaD"/>
+                                            <constraint firstAttribute="trailing" secondItem="ikc-KL-KsJ" secondAttribute="trailing" constant="16" id="x32-2o-9Pl"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7n4-cI-B8c">
+                                        <rect key="frame" x="0.0" y="118" width="382" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIj-hA-Nmm">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="44"/>
+                                                <state key="normal" title="Start"/>
+                                                <connections>
+                                                    <action selector="didTapStartButton:" destination="iZW-3D-1vF" eventType="touchUpInside" id="aWC-3y-jhr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRg-ET-bTK">
+                                                <rect key="frame" x="191" y="0.0" width="191" height="44"/>
+                                                <state key="normal" title="Shuffle"/>
+                                                <connections>
+                                                    <action selector="didTapShuffleButton:" destination="iZW-3D-1vF" eventType="touchUpInside" id="BXL-is-aCl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Y4t-AN-gC2"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Y4t-AN-gC2"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A3y-uu-sGr"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="7n4-cI-B8c" secondAttribute="bottom" constant="40" id="5sE-y9-sU2"/>
-                            <constraint firstItem="7n4-cI-B8c" firstAttribute="leading" secondItem="C3P-2O-qtV" secondAttribute="leading" id="8uQ-Zo-CRc"/>
+                            <constraint firstItem="A3y-uu-sGr" firstAttribute="bottom" secondItem="L9f-R3-35I" secondAttribute="bottom" constant="40" id="0iT-sc-Xfp"/>
+                            <constraint firstItem="L9f-R3-35I" firstAttribute="top" secondItem="sXr-hR-qTs" secondAttribute="bottom" constant="2" id="CF9-Jy-N7g"/>
                             <constraint firstItem="sXr-hR-qTs" firstAttribute="top" secondItem="C3P-2O-qtV" secondAttribute="top" constant="40" id="GF3-YR-32V"/>
-                            <constraint firstAttribute="trailing" secondItem="7n4-cI-B8c" secondAttribute="trailing" id="XQl-Jm-gDQ"/>
-                            <constraint firstItem="7n4-cI-B8c" firstAttribute="top" secondItem="sXr-hR-qTs" secondAttribute="bottom" constant="16" id="evo-MP-aIH"/>
+                            <constraint firstItem="L9f-R3-35I" firstAttribute="leading" secondItem="A3y-uu-sGr" secondAttribute="leading" constant="16" id="T3G-PP-gny"/>
+                            <constraint firstItem="A3y-uu-sGr" firstAttribute="trailing" secondItem="L9f-R3-35I" secondAttribute="trailing" constant="16" id="lD9-TQ-RiU"/>
                             <constraint firstItem="sXr-hR-qTs" firstAttribute="leading" secondItem="C3P-2O-qtV" secondAttribute="leading" constant="16" id="m5V-ee-71I"/>
                             <constraint firstAttribute="trailing" secondItem="sXr-hR-qTs" secondAttribute="trailing" constant="16" id="pXZ-LM-wBb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationSpeedSlider" destination="ikc-KL-KsJ" id="neT-bg-YuZ"/>
                         <outlet property="shuffleButton" destination="WRg-ET-bTK" id="zn7-2t-K4I"/>
                         <outlet property="startButton" destination="tIj-hA-Nmm" id="btq-P1-iPg"/>
                         <outlet property="visualizationContainer" destination="sXr-hR-qTs" id="0mn-QM-chI"/>
@@ -62,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRP-jP-pSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-484" y="117"/>
+            <point key="canvasLocation" x="-484.05797101449281" y="116.51785714285714"/>
         </scene>
     </scenes>
 </document>
